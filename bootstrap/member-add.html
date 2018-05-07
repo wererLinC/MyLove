@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap3测试</title>
+    <link rel="stylesheet" href="{$Think.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="{$Think.CSS_URL}base.css">
+    <link rel="stylesheet" href="{$Think.CSS_URL}renyuan.css"> 
+</head>
+<body>
+<!--代码-->
+<div class="top">
+
+</div>
+<!--头部-->
+
+<div class="header ">
+    <div class="warrpBox">
+        <div class="header-title">
+            欢迎&nbsp;:&nbsp;<strong>AdminStorer</strong>&nbsp;|&nbsp;<a style="color: #fff;" href="#">帮助</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color: #fff;" href="#">注销</a>
+        </div>
+        <div class="navbar-header ">
+            　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+            <a href="##" class="navbar-brand" style="color: #fff; font-family: '微软雅黑' ;font-weight:bold;font-size: 20px;">社区管理</a>
+        </div>
+        <div class="navbar navbar-position" role="navigation">
+
+            <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-color" ><a style="color: #887E42;" href="##">网站首页</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">系列教程</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">名师介绍</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">成功案例</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--面包屑-->
+
+<div class="bread">
+    <div class="warrpBox">
+        <ol class="breadcrumb" style="background: none;padding-top: 18px">
+            <li><a href="#"></a>首页</li>
+            <li><a href="#"></a>人员</li>
+            <li class="active"><a href="#">人员添加</a></li>
+        </ol>
+    </div>
+</div>
+
+<!--内容-->
+            <!--右侧内容-->
+<div class="cont">
+    <div class="warrpBox">
+        <div class="cont-title" id="guanliyuanliebiao">人员信息登记</div>
+        <div class="cont-content">
+            <form action="" method="post" enctype="multipart/form-data">
+                <table class="people-table" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td class="one" colspan="3" align="center">照片:</td>
+                        <td class="two" colspan="3" align="center">
+                            <input type="file" name="img">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="one" align="center">身份证号码:</td>
+                        <td class="two" align="center"><input type="text" name="cardId"></td>
+                        <td class="one" align="center">姓名:</td>
+                        <td class="two" align="center"><input type="text" name="username"></td>
+                        <td class="one" align="center">与户主关系:</td>
+                        <td class="two" align="center">
+                            <select name="relation">
+                                <option value="1" check>户主</option>
+                                <option value="2">妻子</option>
+                                <option value="3">长子</option>
+                                <option value="4">次子</option>
+                                <option value="5">长女</option>
+                                <option value="6">次女</option>
+                            </select>
+                        </td>
+
+                    <tr>
+                        <td class="one" align="center">籍贯:</td>
+                        <td class="two" align="center"><input type="text" name="origin"></td>
+                        <td class="one" align="center">户籍地:</td>
+                        <td class="two" align="center"><input type="text" name="origin_addreaa"></td>
+                        <td class="one" align="center">性别:</td>
+                        <td class="two three" align="center">
+                            <input type="radio" name="sex" value="1" checked>男
+                            <input type="radio" name="sex" value="2" >女
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="one" align="center">民族:</td>
+                        <td class="two" align="center"><input type="text" name="nation"></td>
+                        <td class="one" align="center">工作单位:</td>
+                        <td class="two" align="center">
+                            <input type="text" name="work_address"></td>
+                        <td class="one" align="center">文化程度:</td>
+                        <td class="two" align="center">
+                            <select name="culture">
+                                <option  value="1" check>本科</option>
+                                <option  value="2">大专</option>
+                                <option  value="3">中专</option>
+                                <option  value="4">专科</option>
+                                <option  value="5">高中</option>
+                                <option  value="6">初中</option>
+                                <option  value="7">研究生</option>
+                                <option  value="8">硕士</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="one" align="center">政治面貌:</td>
+                        <td class="two" align="center">
+                            <select name="polity">
+                                <option value="1" check>中共党员</option>
+                                <option value="2">共青团员</option>
+                                <option value="3">群众</option>
+                                <option value="4">预备党员</option>
+                                <option value="5">其他民主党派</option>
+
+                            </select></td>
+                        <td class="one" align="center">党员管辖:</td>
+                        <td class="two" align="center">
+                            <select name="popedom">
+                                <option value="1" check>直属</option>
+                                <option value="2">住区</option>
+                                <option value="3">单位</option>
+                            </select></td>
+                        <td class="one" align="center">兵役状况:</td>
+                        <td class="two" align="center">
+                            <select name="army">
+                                <option value="1" check>未服兵役</option>
+                                <option value="2">已服兵役</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="one" align="center">人员特征:</td>
+                        <td class="two" align="center">
+                            <select name="feature">
+                                <option value="1" check>正常</option>
+                                <option value="2">关注对象</option>
+                                <option value="3">涉稳人员</option>
+                                <option value="4">矫正对象</option>
+                                <option value="5">精神病人</option>
+                                <option value="6">重点人口</option>
+                                <option value="7">吸毒人员</option>
+                            </select></td>
+                        <td class="one" align="center">公益职务:</td>
+                        <td class="two" align="center">
+                            <select name="job">
+                                <option value="1" check>无</option>
+                                <option value="1" >楼栋长</option>
+                                <option value="2">小组长</option>
+                                <option value="3">志愿者</option>
+                                <option value="3">信息元</option>
+                            </select></td>
+                        <td class="one" align="center">婚姻状况:</td>
+                        <td class="two" align="center">
+                            <select name="marriage">
+                                <option value="1" check>初婚</option>
+                                <option value="2">离婚</option>
+                                <option value="3">未婚</option>
+                                <option value="4">再婚</option>
+                                <option value="5">其他</option>
+                            </select></td>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="one" colspan="2" align="center">特长兴趣:</td>
+                        <td class="two" align="center">
+                            <textarea rows="2" name="speciality"></textarea>
+                        </td>
+                        <td class="one" colspan="2" align="center">人员特征简介:</td>
+                        <td class="two" rol="2" align="center">
+                            <textarea rows="2" name="feature_des"></textarea>
+                        </td></td>
+                    </tr>
+
+                    <tr style="position: relative;">
+                        <td class="one" colspan="3" align="center">备注:</td>
+                        <td class="two" colspan="3" align="left">
+                            <textarea rows="2" cols="40" name="commont"></textarea>
+                            <input style="width: 40px;height: 40px;position: absolute;right: 300px;top: 750px;" type="button" id="add_member_botton" value="提交">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--间隙-->
+
+<div style="width: 100%;height: 630px;">
+
+</div>
+<!--页脚-->
+
+<div class="foot">
+    <div class="warrpBox">
+        &copy;&nbsp;2018&nbsp;-&nbsp;陈伟林
+    </div>
+</div>
+</body>
+</html>

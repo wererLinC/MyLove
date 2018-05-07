@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap3测试</title>
+    <link rel="stylesheet" href="{$Think.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="{$Think.CSS_URL}base.css">
+    <!--<link rel="stylesheet" href="{$Think.JS_URL}bootstrap.min.js">-->
+
+ 
+</head>
+<body>
+<!--代码-->
+<div class="top">
+
+</div>
+
+<!--菜单-->
+<div class="content-menu">
+    <div class="content-menu-title">
+        菜单管理
+    </div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-bell" title="任务" style="color: #BA4C32"></span>&nbsp;任务管理</div>
+
+</div>
+
+<!--头部-->
+
+<div class="header ">
+    <div class="warrpBox">
+        <div class="header-title">
+            欢迎&nbsp;:&nbsp;<strong>AdminStorer</strong>&nbsp;|&nbsp;<a style="color: #fff;" href="#">帮助</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color: #fff;" href="#">注销</a>
+        </div>
+        <div class="navbar-header ">
+            　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+            <a href="##" class="navbar-brand" style="color: #fff; font-family: '微软雅黑' ;font-weight:bold;font-size: 20px;">社区管理</a>
+        </div>
+        <div class="navbar navbar-position" role="navigation">
+
+            <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-color" ><a style="color: #887E42;" href="##">网站首页</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">系列教程</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">名师介绍</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">成功案例</a></li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--面包屑-->
+
+<div class="bread">
+    <div class="warrpBox">
+        <ol class="breadcrumb" style="background: none;padding-top: 18px">
+            <li><a href="#"></a>首页</li>
+            <li><a href="#"></a>人员</li>
+            <li class="active"><a href="#">重点人员</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="warrpBox">
+    <table class="table  table-bordered table-hover" style="width: 805px">
+        <thead>
+        <tr style="background-color:#BA4C32;" >
+            <th colspan="5" style="color: #fff;">人员列表
+                <form action="##" class="navbar-form navbar-right" rol="search" style="margin-top: -3px;margin-bottom: -8px;">
+                    <div class="form-group" style="padding-bottom: 5px;">
+                        <input type="text" class="form-control" placeholder="请输入关键词" />
+                    </div>
+                    <button type="submit" class="btn btn-default" style="margin-top: -5px;">搜索</button>
+                </form>
+            </th>
+
+        </tr>
+        </thead>
+        <tbody style="background-color: #FBFCFC;">
+        <tr>
+            <th>表格标题</th>
+            <th>表格标题</th>
+            <th>表格标题</th>
+            <th>表格标题</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr><tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+
+            </td>
+        </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+<!--间隙-->
+
+<div style="width: 100%;height: 5px;">
+
+</div>
+
+<!--任务-->
+<div class="warrpBox">
+    <div class="task-title">任务列表</div>
+    <div class="task">
+        <div class="task-content-title">
+            <h5>&nbsp;任务名称:</h5>
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;xxx</h6>
+        </div>
+        <div class="task-content-time">
+            <h5>&nbsp;任务名称:</h5>
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;xxx</h6>
+        </div>
+        <div class="task-content-item">
+            <h5>&nbsp;任务内容:</h5>
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;xxx</h6>
+        </div>
+        <div class="task-content-btn">
+            <input type="button" class="btn btn-danger" value="领取">
+        </div>
+    </div>
+</div>
+
+<!--间隙-->
+
+<div style="width: 100%;height: 30px;">
+
+</div>
+<!--页脚-->
+
+<div class="foot">
+    <div class="warrpBox">
+        &copy;&nbsp;2018&nbsp;-&nbsp;陈伟林
+    </div>
+</div>
+</body>
+</html>
