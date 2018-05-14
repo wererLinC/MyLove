@@ -1,15 +1,425 @@
 <!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>社区后台管理首页</title>
     <title>bootstrap3测试</title>
-    <link rel="stylesheet" href="{$Think.CSS_URL}bootstrap.min.css">
-    <link rel="stylesheet" href="{$Think.CSS_URL}base.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/renyuan.css">
+
+    <style>
+        .modal-dialog-box{
+            width: 1000px;
+            height: 100%;
+        }
+        .pagination{
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown-menu li a:hover{
+            line-height: 40px;
+            width: 129px;
+            height: 40px;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+            background-color:#FAEFBE;
+        }
+
+    </style>
     <!--<link rel="stylesheet" href="{$Think.JS_URL}bootstrap.min.js">-->
 
- 
 </head>
 <body>
+<!-- 添加人员（Modal） -->
+<div class="modal fade" id="member-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-box">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">
+                    添加人员
+                </h4>
+            </div>
+            <div class="modal-body" style="font-weight: bold;font-size: 28px;">
+                <div class="cont-content">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <table class="people-table" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr>
+                                <td class="one" colspan="3" align="center">照片:</td>
+                                <td class="two" colspan="3" align="center">
+                                    <input type="file" name="img">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">身份证号码:</td>
+                                <td class="two" align="center"><input type="text" name="cardId"></td>
+                                <td class="one" align="center">姓名:</td>
+                                <td class="two" align="center"><input type="text" name="username"></td>
+                                <td class="one" align="center">与户主关系:</td>
+                                <td class="two" align="center">
+                                    <select name="relation">
+                                        <option value="1" check>户主</option>
+                                        <option value="2">妻子</option>
+                                        <option value="3">长子</option>
+                                        <option value="4">次子</option>
+                                        <option value="5">长女</option>
+                                        <option value="6">次女</option>
+                                    </select>
+                                </td>
+
+                            <tr>
+                                <td class="one" align="center">籍贯:</td>
+                                <td class="two" align="center"><input type="text" name="origin"></td>
+                                <td class="one" align="center">户籍地:</td>
+                                <td class="two" align="center"><input type="text" name="origin_addreaa"></td>
+                                <td class="one" align="center">性别:</td>
+                                <td class="two three" align="center">
+                                    <input type="radio" name="sex" value="1" checked>男
+                                    <input type="radio" name="sex" value="2" >女
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">民族:</td>
+                                <td class="two" align="center"><input type="text" name="nation"></td>
+                                <td class="one" align="center">工作单位:</td>
+                                <td class="two" align="center">
+                                    <input type="text" name="work_address"></td>
+                                <td class="one" align="center">文化程度:</td>
+                                <td class="two" align="center">
+                                    <select name="culture">
+                                        <option  value="1" check>本科</option>
+                                        <option  value="2">大专</option>
+                                        <option  value="3">中专</option>
+                                        <option  value="4">专科</option>
+                                        <option  value="5">高中</option>
+                                        <option  value="6">初中</option>
+                                        <option  value="7">研究生</option>
+                                        <option  value="8">硕士</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">政治面貌:</td>
+                                <td class="two" align="center">
+                                    <select name="polity">
+                                        <option value="1" check>中共党员</option>
+                                        <option value="2">共青团员</option>
+                                        <option value="3">群众</option>
+                                        <option value="4">预备党员</option>
+                                        <option value="5">其他民主党派</option>
+
+                                    </select></td>
+                                <td class="one" align="center">党员管辖:</td>
+                                <td class="two" align="center">
+                                    <select name="popedom">
+                                        <option value="1" check>直属</option>
+                                        <option value="2">住区</option>
+                                        <option value="3">单位</option>
+                                    </select></td>
+                                <td class="one" align="center">兵役状况:</td>
+                                <td class="two" align="center">
+                                    <select name="army">
+                                        <option value="1" check>未服兵役</option>
+                                        <option value="2">已服兵役</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">人员特征:</td>
+                                <td class="two" align="center">
+                                    <select name="feature">
+                                        <option value="1" check>正常</option>
+                                        <option value="2">关注对象</option>
+                                        <option value="3">涉稳人员</option>
+                                        <option value="4">矫正对象</option>
+                                        <option value="5">精神病人</option>
+                                        <option value="6">重点人口</option>
+                                        <option value="7">吸毒人员</option>
+                                    </select></td>
+                                <td class="one" align="center">公益职务:</td>
+                                <td class="two" align="center">
+                                    <select name="job">
+                                        <option value="1" check>无</option>
+                                        <option value="1" >楼栋长</option>
+                                        <option value="2">小组长</option>
+                                        <option value="3">志愿者</option>
+                                        <option value="3">信息元</option>
+                                    </select></td>
+                                <td class="one" align="center">婚姻状况:</td>
+                                <td class="two" align="center">
+                                    <select name="marriage">
+                                        <option value="1" check>初婚</option>
+                                        <option value="2">离婚</option>
+                                        <option value="3">未婚</option>
+                                        <option value="4">再婚</option>
+                                        <option value="5">其他</option>
+                                    </select></td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="one" colspan="2" align="center">特长兴趣:</td>
+                                <td class="two" align="center">
+                                    <textarea rows="3" name="speciality"></textarea>
+                                </td>
+                                <td class="one" colspan="2" align="center">人员特征简介:</td>
+                                <td class="two" rol="2" align="center">
+                                    <textarea rows="3" name="feature_des"></textarea>
+                                </td></td>
+                            </tr>
+
+                            <tr style="position: relative;">
+                                <td class="one" colspan="3" align="center">备注:</td>
+                                <td class="two" colspan="3" align="left" style="position: relative">
+                                    <textarea rows="3" cols="40" name="commont"></textarea>
+                                    <input style="width: 40px;height: 40px;position: absolute;right: 50px;top: 20px;" type="button" id="add_member_botton" value="提交">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--添加人员结束-->
+<!-- 修改人员（Modal） -->
+<div class="modal fade" id="member-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-box">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">
+                    人员信息修改
+                </h4>
+            </div>
+            <div class="modal-body" style="font-weight: bold;font-size: 28px;">
+                <div class="cont-content">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <table class="people-table" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr>
+                                <td class="one" colspan="3" align="center">照片:</td>
+                                <td class="two" colspan="3" align="center">
+                                    <input type="file" name="img">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">身份证号码:</td>
+                                <td class="two" align="center"><input type="text" name="cardId" value="333"></td>
+                                <td class="one" align="center">姓名:</td>
+                                <td class="two" align="center"><input type="text" name="username" value="333"></td>
+                                <td class="one" align="center">与户主关系:</td>
+                                <td class="two" align="center">
+                                    <select name="relation">
+                                        <option value="1" check>户主</option>
+                                        <option value="2">妻子</option>
+                                        <option value="3">长子</option>
+                                        <option value="4">次子</option>
+                                        <option value="5">长女</option>
+                                        <option value="6">次女</option>
+                                    </select>
+                                </td>
+
+                            <tr>
+                                <td class="one" align="center">籍贯:</td>
+                                <td class="two" align="center"><input type="text" name="origin" value="333"></td>
+                                <td class="one" align="center">户籍地:</td>
+                                <td class="two" align="center"><input type="text" name="origin_addrss" value="333"></td>
+                                <td class="one" align="center">性别:</td>
+                                <td class="two three" align="center">
+                                    <input type="radio" name="sex" value="1" checked>男
+                                    <input type="radio" name="sex" value="2" >女
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">民族:</td>
+                                <td class="two" align="center"><input type="text" name="nation" value="333"></td>
+                                <td class="one" align="center">工作单位:</td>
+                                <td class="two" align="center">
+                                    <input type="text" name="work_address" value="333"></td>
+                                <td class="one" align="center">文化程度:</td>
+                                <td class="two" align="center">
+                                    <select name="culture">
+                                        <option  value="1" check>本科</option>
+                                        <option  value="2">大专</option>
+                                        <option  value="3">中专</option>
+                                        <option  value="4">专科</option>
+                                        <option  value="5">高中</option>
+                                        <option  value="6">初中</option>
+                                        <option  value="7">研究生</option>
+                                        <option  value="8">硕士</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">政治面貌:</td>
+                                <td class="two" align="center">
+                                    <select name="polity">
+                                        <option value="1" check>中共党员</option>
+                                        <option value="2">共青团员</option>
+                                        <option value="3">群众</option>
+                                        <option value="4">预备党员</option>
+                                        <option value="5">其他民主党派</option>
+
+                                    </select></td>
+                                <td class="one" align="center">党员管辖:</td>
+                                <td class="two" align="center">
+                                    <select name="popedom">
+                                        <option value="1" check>直属</option>
+                                        <option value="2">住区</option>
+                                        <option value="3">单位</option>
+                                    </select></td>
+                                <td class="one" align="center">兵役状况:</td>
+                                <td class="two" align="center">
+                                    <select name="army">
+                                        <option value="1" check>未服兵役</option>
+                                        <option value="2">已服兵役</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="one" align="center">人员特征:</td>
+                                <td class="two" align="center">
+                                    <select name="feature">
+                                        <option value="1" check>正常</option>
+                                        <option value="2">关注对象</option>
+                                        <option value="3">涉稳人员</option>
+                                        <option value="4">矫正对象</option>
+                                        <option value="5">精神病人</option>
+                                        <option value="6">重点人口</option>
+                                        <option value="7">吸毒人员</option>
+                                    </select></td>
+                                <td class="one" align="center">公益职务:</td>
+                                <td class="two" align="center">
+                                    <select name="job">
+                                        <option value="1" check>无</option>
+                                        <option value="1" >楼栋长</option>
+                                        <option value="2">小组长</option>
+                                        <option value="3">志愿者</option>
+                                        <option value="3">信息元</option>
+                                    </select></td>
+                                <td class="one" align="center">婚姻状况:</td>
+                                <td class="two" align="center">
+                                    <select name="marriage">
+                                        <option value="1" check>初婚</option>
+                                        <option value="2">离婚</option>
+                                        <option value="3">未婚</option>
+                                        <option value="4">再婚</option>
+                                        <option value="5">其他</option>
+                                    </select></td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="one" colspan="2" align="center">特长兴趣:</td>
+                                <td class="two" align="center">
+                                    <textarea rows="3" name="speciality" >333</textarea>
+                                </td>
+                                <td class="one" colspan="2" align="center">人员特征简介:</td>
+                                <td class="two" rol="2" align="center">
+                                    <textarea rows="3" name="feature_des" >333</textarea>
+                                </td></td>
+                            </tr>
+
+                            <tr style="position: relative;">
+                                <td class="one" colspan="3" align="center">备注:</td>
+                                <td class="two" colspan="3" align="left" style="position: relative">
+                                    <textarea rows="3" cols="40" name="commont" >333</textarea>
+                                    <input style="width: 40px;height: 40px;position: absolute;right: 50px;top: 20px;" type="button" id="add_member_botton" value="提交">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--修改人员结束-->
+<!-- 查看人员（Modal） -->
+<div class="modal fade" id="look" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">
+                    个人详情
+                </h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <img width="80px" height="80px;" style="border-radius: 50%;border: 1px solid #333;overflow: hidden;" src="">
+                <div style="text-align: center;margin-top: 10px;font-weight: bold">
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+                    姓名&nbsp;: &nbsp;张三                 </br>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--查看人员结束-->
+<!-- 帮助（Modal） -->
+<div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">
+                    帮助中心
+                </h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                关于该软件，必须配置有flash的插件，最好是用当下流行的浏览器，谷歌，火狐等，尽量不要使用ie
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--帮助结束-->
+
 <!--代码-->
 <div class="top">
 
@@ -20,11 +430,11 @@
     <div class="content-menu-title">
         菜单管理
     </div>
-    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
-    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
-    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
-    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;添加人员</div>
-    <div class="content-menu-listItem"><span class="glyphicon glyphicon-bell" title="任务" style="color: #BA4C32"></span>&nbsp;任务管理</div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;<a style="color: #666" data-toggle="modal" data-target="#member-add">添加人员</a></div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;<a style="color: #666" data-toggle="modal" data-target="#member-add">添加人员</a></div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;<a style="color: #666" data-toggle="modal" data-target="#member-add">添加人员</a></div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-plus" title="添加" style="color: #BA4C32"></span>&nbsp;<a style="color: #666" data-toggle="modal" data-target="#member-add">添加人员</a></div>
+    <div class="content-menu-listItem"><span class="glyphicon glyphicon-bell" title="任务" style="color: #BA4C32"></span>&nbsp;<a style="color: #666" href="#task">任务管理</a></div>
 
 </div>
 
@@ -33,7 +443,7 @@
 <div class="header ">
     <div class="warrpBox">
         <div class="header-title">
-            欢迎&nbsp;:&nbsp;<strong>AdminStorer</strong>&nbsp;|&nbsp;<a style="color: #fff;" href="#">帮助</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color: #fff;" href="#">注销</a>
+            欢迎&nbsp;:&nbsp;<strong>AdminStorer</strong>&nbsp;|&nbsp;<a style="color: #fff;" href="#" data-toggle="modal" data-target="#help">帮助</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color: #fff;" href="login.html">注销</a>
         </div>
         <div class="navbar-header ">
             　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
@@ -51,10 +461,30 @@
             <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
             <div class="collapse navbar-collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="nav-color" ><a style="color: #887E42;" href="##">网站首页</a></li>
-                    <li class="nav-color"><a style="color: #887E42;" href="##">系列教程</a></li>
-                    <li class="nav-color"><a style="color: #887E42;" href="##">名师介绍</a></li>
-                    <li class="nav-color"><a style="color: #887E42;" href="##">成功案例</a></li>
+                    <li class="nav-color"id="nav-btn-style"><a style="color: #887E42;" href="#" id="nav-btn">网站首页</a></li>
+                    <li class="dropdown nav-color" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;color: #887E42;">人员信息
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="min-width: 60px;width: 131px;">
+                            <li>
+                                <a href="#">正常人员</a></li>
+                            <li>
+                                <a href="#">重点人员</a></li>
+                            <li>
+                        </ul>
+                    </li>
+                    <li class="nav-color"><a style="color: #887E42;" href="##">车辆信息</a></li>
+                    <li class="dropdown nav-color">
+                        <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;color: #887E42;">房屋信息
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="min-width: 60px;width: 131px;">
+                            <li>
+                                <a href="#">私有住房</a></li>
+                            <li>
+                                <a href="#">出租房</a></li>
+                            <li>
+                        </ul>
+                    </li>
                     <li class="nav-color"><a style="color: #887E42;" href="##">关于我们</a></li>
                 </ul>
             </div>
@@ -78,15 +508,7 @@
     <table class="table  table-bordered table-hover" style="width: 805px">
         <thead>
         <tr style="background-color:#BA4C32;" >
-            <th colspan="5" style="color: #fff;">人员列表
-                <form action="##" class="navbar-form navbar-right" rol="search" style="margin-top: -3px;margin-bottom: -8px;">
-                    <div class="form-group" style="padding-bottom: 5px;">
-                        <input type="text" class="form-control" placeholder="请输入关键词" />
-                    </div>
-                    <button type="submit" class="btn btn-default" style="margin-top: -5px;">搜索</button>
-                </form>
-            </th>
-
+            <th colspan="5" style="color: #fff;"><span class="glyphicon glyphicon-user" ></span>人员列表
         </tr>
         </thead>
         <tbody style="background-color: #FBFCFC;">
@@ -103,9 +525,21 @@
             <td>表格单元格</td>
             <td>表格单元格</td>
             <td>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="删除" ></span></a>
+            </td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>
+                &nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr>
@@ -116,9 +550,9 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr>
@@ -129,9 +563,9 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr>
@@ -142,9 +576,9 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr>
@@ -155,9 +589,9 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr>
@@ -168,22 +602,9 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
-
-            </td>
-        </tr>
-        <tr>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-            <td>
-                &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看" ></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
             </td>
         </tr><tr>
@@ -193,10 +614,23 @@
             <td>表格单元格</td>
             <td>
                 &nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
-                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-remove" title="删除"></span></a>
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#member-edit"><span class="glyphicon glyphicon-pencil" title="修改"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;" data-toggle="modal" data-target="#look"><span class="glyphicon glyphicon-eye-open" title="查看"></span></a>&nbsp;&nbsp;
+                <a href="#" style="color: #333333;"><span class="glyphicon glyphicon-trash" title="删除"></span></a>
 
+            </td>
+        </tr>
+        <tr  style="text-align: center;">
+            <td colspan="5">
+                <ul class="pagination" >
+                    <li><a href="#" style="color: #333;">&laquo;</a></li>
+                    <li><a href="#" style="color: #333;">1</a></li>
+                    <li><a href="#" style="color: #333;">2</a></li>
+                    <li><a href="#" style="color: #333;">3</a></li>
+                    <li><a href="#" style="color: #333;">4</a></li>
+                    <li><a href="#" style="color: #333;">5</a></li>
+                    <li><a href="#" style="color: #333;">&raquo;</a></li>
+                </ul>
             </td>
         </tr>
 
@@ -212,47 +646,51 @@
 </div>
 
 <!--任务-->
-<div class="warrpBox">
-    <div class="task-title">任务列表</div>
-    <div class="task">
-        <div class="task-content-title">
-            <h5>&nbsp;任务名称:</h5>
-            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;xxx</h6>
-        </div>
-        <div class="task-content-time">
-            <h5>&nbsp;任务名称:</h5>
-            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;xxx</h6>
-        </div>
-        <div class="task-content-item">
-            <h5>&nbsp;任务内容:</h5>
-            <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;xxx</h6>
-        </div>
-        <div class="task-content-btn">
-            <input type="button" class="btn btn-danger" value="领取">
+<div class="warrpBox" id="task">
+    <div class="task-title"><span class="glyphicon glyphicon-bell"></span>任务列表</div>
+    <div class="warrpBox">
+        <div class="task">
+            <div class="task-content-title">
+                <h5>&nbsp;任务名称:</h5>
+                <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;xxx</h6>
+            </div>
+            <div class="task-content-time">
+                <h5>&nbsp;任务名称:</h5>
+                <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;xxx</h6>
+            </div>
+            <div class="task-content-item">
+                <h5>&nbsp;任务内容:</h5>
+                <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;xxx</h6>
+            </div>
+            <div class="task-content-btn">
+                <input type="button" class="btn btn-danger" value="领取">
+            </div>
         </div>
     </div>
-</div>
 
-<!--间隙-->
+    <!--间隙-->
 
-<div style="width: 100%;height: 30px;">
+    <div style="width: 100%;height: 30px;">
 
-</div>
-<!--页脚-->
+    </div>
+    <!--页脚-->
 
+
+    </div>
 <div class="foot">
     <div class="warrpBox">
         &copy;&nbsp;2018&nbsp;-&nbsp;陈伟林
     </div>
-</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,127 +1,162 @@
+/*主页*/
 body{
-            width:100%;
-            height:100%;
-            background-color:rgba(249,235,174,0.8);
-            positon:relative;
-        }
+    width:100%;
+    height:100%;
+    background-color:rgba(249,235,174,0.8);
+    positon:relative;
+}
 
-        .content-menu{
-            position: absolute;
-            width: 200px;
-            height: 250px;
-            border: 1px solid #DDDDDD;
-            top: 207px;
-            right: 150px;
-            background-color: #FBFCFC;
-        }
+.content-menu{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    border: 1px solid #DDDDDD;
+    top: 207px;
+    right: 150px;
+    background-color: #FBFCFC;
+}
 
-        .content-menu-title{
-            font-weight: bold;
-            font-size: 30px;
-            width: 100%;
-            height: 30px;
-            background-color: #BA4C32;
-            line-height: 30px;
-            text-align: center;
-            color: #fff;
-        }
+.content-menu-title{
+    font-weight: bold;
+    font-size: 30px;
+    width: 100%;
+    height: 30px;
+    background-color: #BA4C32;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+}
 
-        .warrpBox{
-            width: 1100px;
-            height: 100%;
-            margin: 0 auto;
-        }
-        .top{
-            width: 100px;
-            height: 65px;
-        }
-        .header{background-color:#B94C32;
-            height: 90px;
-            width: 100%;
-            position: relative;
-        }
-        .header-title{
-            float: right;
-            color: #fff;
-            padding-top: 5px;
-        }
+.warrpBox{
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+.top{
+    width: 100px;
+    height: 65px;
+}
+.header{background-color:#B94C32;
+    height: 90px;
+    width: 100%;
+    position: relative;
+}
+.header-title{
+    float: right;
+    color: #fff;
+    padding-top: 5px;
+}
 
-        .navbar-position{
-            position: absolute;
-            bottom: 0;
-            margin-bottom:-9px;
-        }
-        .nav-color{
-            width: 130px;
-            height: 40px;
-            background-color: #EDC209;
-            margin: 0 3px;
-            text-align: center;
-            border-top-right-radius: 12px;
-            border-top-left-radius: 12px;
-        }
-        .nav li a:hover{
-            width: 130px;
-            height: 40px;
-            border-top-right-radius: 12px;
-            border-top-left-radius: 12px;
-            background-color:#FAEFBE;
-        }
-        .bread{
-            width: 100%;
-            height: 52px;
-        }
-        .task{
-            width: 805px;
-            height: 250px;
-            border: 1px solid #DDDDDD;
-            background-color: #FBFCFC;
-        }
+.navbar-position{
+    position: absolute;
+    bottom: 0;
+    margin-bottom:-9px;
+}
+.nav-color{
+    width: 130px;
+    height: 40px;
+    background-color: #EDC209;
+    margin: 0 3px;
+    text-align: center;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+.nav li a:hover{
+    width: 130px;
+    height: 40px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    background-color:#FAEFBE;
+}
 
-        .foot{
-            width: 100%;
-            height: 40px;
-            background-color: #A6432B;
-            line-height: 40px;
-            font-size: 12px;
-            color: #fff;
-            text-align: center;
-        }
-        .task-title{
-            background-color:#BA4C32;
-            height: 30px;
-            width: 805px;
-            border:1px solid #DDDDDD;
-            line-height: 30px;
-            color: #fff;
-        }
 
-        .content-menu-title{
-            font-weight: bold;
-            font-size: 24px;
-            width: 100%;
-            height: 40px;
-            background-color: #BA4C32;
-            line-height: 40px;
-            text-align: center;
-            color: #fff;
-        }
-        .content-menu-listItem{
-            display: block;
-            font-size: 16px;
-            width: 100%;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            color: #555;
-            padding-top: 5px;
-        }
-        .content-menu-listItem:hover {
-            cursor: pointer;
-        }
-        .task-content-btn{
-            text-align: right;
-        }
-        .task-content-btn input{
-            margin-right: 40px;
-        }
+
+.bread{
+    width: 100%;
+    height: 52px;
+}
+.task{
+    width: 805px;
+    height: 250px;
+    border: 1px solid #DDDDDD;
+    background-color: #FBFCFC;
+}
+
+.foot{
+    width: 100%;
+    height: 40px;
+    background-color: #A6432B;
+    line-height: 40px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+.task-title{
+    background-color:#BA4C32;
+    height: 30px;
+    width: 805px;
+    border:1px solid #DDDDDD;
+    line-height: 30px;
+    color: #fff;
+}
+
+.content-menu-title{
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    height: 40px;
+    background-color: #BA4C32;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+.content-menu-listItem{
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #555;
+    padding-top: 5px;
+}
+.content-menu-listItem:hover {
+    cursor: pointer;
+}
+.task-content-btn{
+    text-align: right;
+}
+.task-content-btn input{
+    margin-right: 40px;
+}
+.content-menu-title{
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    height: 40px;
+    background-color: #BA4C32;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+.content-menu-listItem{
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #555;
+    padding-top: 5px;
+}
+.content-menu-listItem:hover {
+    cursor: pointer;
+}
+.task-content-btn{
+    text-align: right;
+}
+.task-content-btn input{
+    margin-right: 40px;
+}
+
+
