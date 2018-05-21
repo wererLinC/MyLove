@@ -3,7 +3,6 @@ body{
     width:100%;
     height:100%;
     background-color:rgba(249,235,174,0.8);
-    positon:relative;
 }
 
 .content-menu{
@@ -11,8 +10,8 @@ body{
     width: 200px;
     height: 250px;
     border: 1px solid #DDDDDD;
-    top: 207px;
-    right: 150px;
+    top: 0;
+    left: 850px;
     background-color: #FBFCFC;
 }
 
@@ -28,6 +27,7 @@ body{
 }
 
 .warrpBox{
+    position: relative;
     width: 1100px;
     height: 100%;
     margin: 0 auto;
